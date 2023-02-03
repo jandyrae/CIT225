@@ -1,0 +1,65 @@
+Question 1
+A WHERE clause can only filter in data.
+
+  False 
+
+Question 2 
+A "range condition" in the WHERE clause may compare whether a literal, column, or expression values of a NULL value, like an optional middle_name column value, is not between a set of literal, column, or expression values that exclude a NULL value.
+
+mysql> SELECT    first_name
+    -> ,         last_name
+    -> FROM      customer
+    -> WHERE NOT middle_name BETWEEN 'FA' AND 'G';
+  True 
+
+ 
+Question 3
+A "condition" in the WHERE clause may compare equality between literal, column, or expression values with the REGEXP regular expression operator.
+  True 
+
+ 
+Question 4
+A WHERE clause supports one or more "conditions."
+  True 
+
+ 
+Question 5
+A "condition" in the WHERE clause may compare inequality, like > ANY, >= ANY, < ANY, or <= ANY, between literal, column, or expression values and a lists of values.
+
+mysql> SELECT 'True' AS answer
+    -> WHERE  'a' < ANY('a', 'b', 'c');
+
+  False 
+ 
+Question 6
+A WHERE clause can only filter in some data and filter out other data.
+  True 
+
+ 
+Question 7
+A "condition" in the WHERE clause may compare equality between literal, column, or expression values.
+  True 
+
+ 
+Question 8
+A "condition" in the WHERE clause may compare inequality, like IN, between literal, column, or expression values and a lists of values.
+
+mysql> SELECT 'True' AS answer
+    -> WHERE  'a' IN ('a', 'b', 'c');
+  True 
+
+ 
+Question 9
+A "condition" in the WHERE clause may compare inequality, like > SOME, >= SOME, < SOME, or <= SOME, between literal, column, or expression values and a lists of values returned by a subquery.
+
+mysql> SELECT 'True' AS answer
+    -> WHERE  'a' < SOME(SELECT 'a' UNION SELECT 'b' UNION SELECT 'c');
+  True 
+
+ 
+Question 10
+A "condition" in the WHERE clause may compare inequality, like IN, between literal, column, or expression values and a lists of values.
+
+mysql> SELECT 'True' AS answer
+    -> WHERE  'a' IN (SELECT 'a' UNION SELECT 'b' UNION SELECT 'c');
+  True 
